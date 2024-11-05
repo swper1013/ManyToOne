@@ -8,7 +8,7 @@ import com.example.board.entity.Member;
 
 public interface BoardService {
     Long register(BoardDTO boardDTO);
-    PageResultDTO<BoardDTO,Object[]>getList(PageRequestDTO pageRequestDTO);
+    PageResultDTO<BoardDTO,Object[]> getList(PageRequestDTO pageRequestDTO);
     BoardDTO get(Long bno);
     void modify(BoardDTO boardDTO);
     void removeWithReplies(Long bno);

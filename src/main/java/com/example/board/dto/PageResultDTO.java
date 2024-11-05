@@ -1,6 +1,7 @@
 package com.example.board.dto;
 
 import lombok.Data;
+import lombok.extern.java.Log;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -25,7 +26,8 @@ public class PageResultDTO<DTO, EN> {
     private boolean prev,next;
     //페이지 번호 목록
     private List<Integer> pageList;
-    public PageResultDTO(Page<EN> result, Function<EN,DTO>fn){
+    public PageResultDTO(Page<EN> result, Function<EN,DTO> fn){
+
         dtoList= result.stream().map(fn).collect(Collectors.toList());
         totalPage = result.getTotalPages();
         makePageList(result.getPageable());
